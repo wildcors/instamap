@@ -1,8 +1,47 @@
+$grey: #ebeff1;
+$blue: #2856b6;
+$light-blue: #7d9ee2;
+
 body {
     text-align: center;
+    padding: 0;
+    margin: 0;
+    background-color: $grey;
 
     h1 {
         font-family: 'Podkova';
         font-size: 32px;
     }
+}
+
+.btn {
+    overflow: hidden;
+    text-align: center;
+    background-color: $blue;
+    display: inline-block;
+    height: 40px;
+    padding: 0 20px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 600;
+    transition: 0.3s; 
+    text-transform: uppercase;
+    margin: 5px;
+    vertical-align: middle;
+
+    &:hover .animate-text { margin-top: -2.6em; }
+
+    .animate-text { margin-top: 0; }
+
+    span {
+        transition: 0.3s; 
+        display: block;
+        line-height: 40px;
+    }
+
+}
+.auth-status {
+    background-color: #fff;
+    text-align: right;
 }

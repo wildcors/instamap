@@ -15,6 +15,17 @@ const mapDispathToProps = (dispatch) => {
         getPhotos: (queryParams) => dispatch(getPhotosRequest(queryParams))
     }
 }
+const AuthStatus = (props) => {
+    console.log(props)
+    return (
+        <div className="auth-status">
+            <div className="btn">
+                <span className="animate-text">go authorize</span>
+                <span>click to authorize</span>
+            </div>
+        </div> 
+    )
+}
 
 
 class App extends React.Component {
@@ -23,12 +34,14 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getPhotos(this.props.state)
+        // this.props.getPhotos(this.props.state)
     }
 
     render() {
         return (
-            <div>hhh</div>
+            <div className="main">
+                <AuthStatus token={this.props.state.token} />
+            </div>
         )
     }
 }
