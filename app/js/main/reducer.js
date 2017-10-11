@@ -6,10 +6,12 @@ import {
 } from './actions'
 
 const DEFAULT_STATE = {
-    lat: 50.440159,
-    lng: 30.520037,
-    distance: 1000,
-    token: null,
+    queryParams: {
+        lat: 50.440159,
+        lng: 30.520037,
+        distance: 1000,
+        token: null
+    },
     photos: null,
     loading: false
 }

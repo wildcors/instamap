@@ -3,28 +3,22 @@ import { connect } from 'react-redux'
 
 import { getPhotosRequest } from '../main/actions'
 import store from '../store'
+import AuthChecker from './AuthChecker'
 
 const mapStateToProps = (state) => {
     return {
         state: state
     }
-};
+}
+const test = () => {
+    console.log('test')
+} 
 
 const mapDispathToProps = (dispatch) => {
     return {
-        getPhotos: (queryParams) => dispatch(getPhotosRequest(queryParams))
+        getPhotos: (queryParams) => dispatch(getPhotosRequest(queryParams)),
+        test: () => dispatch(test)
     }
-}
-const AuthStatus = (props) => {
-    console.log(props)
-    return (
-        <div className="auth-status">
-            <div className="btn">
-                <span className="animate-text">go authorize</span>
-                <span>click to authorize</span>
-            </div>
-        </div> 
-    )
 }
 
 
@@ -34,13 +28,13 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        // this.props.getPhotos(this.props.state)
+        // this.props.getPhotos(this.props.state.queryParams)
     }
 
     render() {
         return (
             <div className="main">
-                <AuthStatus token={this.props.state.token} />
+                 <AuthChecker token={this.props.state.queryParams.token} goAuth={this.props.state.test} /> 
             </div>
         )
     }

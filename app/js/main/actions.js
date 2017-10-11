@@ -2,6 +2,10 @@ export const GET_PHOTOS_REQUEST = 'GET_PHOTOS_REQUEST'
 export const GET_PHOTOS_SUCCESS = 'GET_PHOTOS_SUCCESS'
 export const GET_PHOTOS_FAIL = 'GET_PHOTOS_FAIL'
 
+export const GET_TOKEN_REQUEST = 'GET_TOKEN_REQUEST'
+export const GET_TOKEN_SUCCESS = 'GET_TOKEN_SUCCESS'
+export const GET_TOKEN_FAIL = 'GET_TOKEN_FAIL'
+
 export const getPhotosRequest = (queryParams) => {
     return {
         type: GET_PHOTOS_REQUEST,
@@ -19,6 +23,26 @@ export const getPhotosSuccess = (photos) => {
 export const getPhotosFail = (error) => {
     return {
         type: GET_PHOTOS_FAIL,
+        payload: error
+    }
+}
+
+export const getTokenRequest = () => {
+    return {
+        type: GET_TOKEN_REQUEST,
+        payload: null
+    }
+}
+
+export const getTokenSuccess = (token) => {
+    return {
+        type: GET_TOKEN_SUCCESS,
+        payload: token
+    }
+}
+export const getTokenFail = (error) => {
+    return {
+        type: GET_TOKEN_FAIL,
         payload: error
     }
 }
