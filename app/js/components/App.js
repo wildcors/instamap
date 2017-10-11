@@ -10,7 +10,8 @@ const mapStateToProps = (state) => {
         state: state
     }
 }
-const test = () => {
+const test = (e) => {
+    e.preventDefault();
     console.log('test')
 } 
 
@@ -34,7 +35,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="main">
-                 <AuthChecker token={this.props.state.queryParams.token} goAuth={this.props.state.test} /> 
+                 <AuthChecker token={this.props.state.queryParams.token} saveToken={this.props.state.test} /> 
             </div>
         )
     }

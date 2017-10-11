@@ -27,10 +27,11 @@ body {
     font-weight: 600;
     transition: 0.3s; 
     text-transform: uppercase;
+    text-decoration: none;
     margin: 5px;
     vertical-align: middle;
 
-    &:hover .animate-text { margin-top: -2.6em; }
+    &:hover .animate-text { margin-top: -2.5em; }
 
     .animate-text { margin-top: 0; }
 
