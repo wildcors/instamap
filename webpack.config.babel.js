@@ -52,7 +52,7 @@ const Config = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'instamap',
+            title: 'photo-map',
             template: './app/index.html',
             minify: {
                 collapseWhitespace: true
