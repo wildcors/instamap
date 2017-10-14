@@ -1,9 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import queryString from 'query-string'
 
 import { getPhotosRequest } from '../main/actions'
+import { saveToken } from '../main/actions'
 import store from '../store'
-import AuthChecker from './AuthChecker'
+import NeedAuth from './NeedAuth'
 import Map from './Map'
 
 const mapStateToProps = (state) => {
@@ -11,15 +13,11 @@ const mapStateToProps = (state) => {
         state: state
     }
 }
-const test = (e) => {
-    e.preventDefault();
-    console.log('test')
-} 
 
 const mapDispathToProps = (dispatch) => {
     return {
         getPhotos: (queryParams) => dispatch(getPhotosRequest(queryParams)),
-        test: () => dispatch(test)
+        setToken: (value) => dispatch(saveToken(value))
     }
 }
 
@@ -27,10 +25,21 @@ const mapDispathToProps = (dispatch) => {
 class App extends React.Component {
     constructor(props) {
         super(props)
+
+        this.setTokenHandle = this.setTokenHandle.bind(this);
     }
 
     componentDidMount() {
         // this.props.getPhotos(this.props.state.queryParams)
+    }
+
+    setTokenHandle () {
+        let querys = queryString.parse(location.hash);
+        if(querys.access_token) {
+            sessionStorage.setItem('accessToken', querys.access_token);
+            this.props.setToken(querys.access_token);
+            location.reload();
+        }
     }
 
     render() {
@@ -38,9 +47,16 @@ class App extends React.Component {
             <div className="main">
                 <div className="menu">
                     <div className="logo">photo-map</div>
-                    <div className="btn-container">
-                        <AuthChecker token={this.props.state.queryParams.token} saveToken={this.props.state.test} /> 
-                    </div>
+                    {
+                        sessionStorage.getItem('accessToken') ?
+                        <div className="already btn">
+                            You already authorized
+                        </div>
+                        :
+                        <div className="btn-container">
+                            <NeedAuth token={this.props.state.queryParams.token} saveToken={this.setTokenHandle} /> 
+                        </div>
+                    }
                 </div>
                 <div className="map">
                     <Map />

@@ -1,6 +1,7 @@
 export const GET_PHOTOS_REQUEST = 'GET_PHOTOS_REQUEST'
 export const GET_PHOTOS_SUCCESS = 'GET_PHOTOS_SUCCESS'
 export const GET_PHOTOS_FAIL = 'GET_PHOTOS_FAIL'
+export const SAVE_TOKEN = 'SAVE_TOKEN'
 
 export const getPhotosRequest = (queryParams) => {
     return {
@@ -20,5 +21,11 @@ export const getPhotosFail = (error) => {
     return {
         type: GET_PHOTOS_FAIL,
         payload: error
+    }
+}
+export const saveToken = (value) => {
+    return {
+        type: SAVE_TOKEN,
+        payload: value
     }
 }

@@ -2,7 +2,8 @@ import { createReducer } from './utils'
 import {
     GET_PHOTOS_REQUEST, 
     GET_PHOTOS_SUCCESS,
-    GET_PHOTOS_FAIL 
+    GET_PHOTOS_FAIL,
+    SAVE_TOKEN
 } from './actions'
 
 const DEFAULT_STATE = {
@@ -40,8 +41,16 @@ const setError = (state, action) => {
     }
 }
 
+const setToken = (state, action) => {
+    return {
+        ...state,
+        token: action.payload
+    }
+}
+
 export default createReducer(DEFAULT_STATE, {
     [GET_PHOTOS_REQUEST]: setLoading,
     [GET_PHOTOS_SUCCESS]: setPhotos,
-    [GET_PHOTOS_FAIL]: setError
+    [GET_PHOTOS_FAIL]: setError,
+    [SAVE_TOKEN]: setToken
 })

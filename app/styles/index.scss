@@ -1,17 +1,19 @@
 $grey: #ebeff1;
 $blue: #2856b6;
+$green: #53bf53;
 $light-blue: #7d9ee2;
 
 .box-shadow {
-    z-index: 1;
-    position: relative;
-
     &-bottom {
         box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.75);
+        z-index: 1;
+        position: relative;
     }
 
     &-top {
         box-shadow: 0px -2px 5px 0px rgba(0,0,0,0.75);
+        z-index: 1;
+        position: relative;
     }
 }
 
@@ -73,6 +75,7 @@ footer {
     margin: 5px;
     vertical-align: middle;
     border-radius: 2px;
+    border: 0;
 
     &:hover .animate-text { margin-top: -2.5em; }
 
@@ -90,6 +93,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     background-color: #fff;
+    z-index: 2;
     @extend .box-shadow-bottom;
 
     .btn-container {
@@ -99,6 +103,11 @@ footer {
         font-size: 1.5em;
         text-transform: uppercase;
         font-weight: 600;
+    }
+    .already {
+        line-height: 40px;
+        background-color: $green;
+        cursor: default;
     }
 }
 
