@@ -6,7 +6,7 @@ import { getPhotosRequest } from '../main/actions'
 import { saveToken } from '../main/actions'
 import store from '../store'
 import NeedAuth from './NeedAuth'
-import Map from './Map'
+import GMap from './GMap'
 
 const mapStateToProps = (state) => {
     return {
@@ -65,7 +65,7 @@ class App extends React.Component {
                     }
                 </div>
                 <div className="map">
-                    <Map />
+                    <GMap />
                 </div>
                 <div className="photos">
                     <div className="photos-title">Results of searching:</div>
