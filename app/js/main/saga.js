@@ -10,6 +10,7 @@ import {
 
 
 function* getPhotos(action) {
+    // console.log(">>>",action)
     try {
         let lat = action.payload.lat,
             lng = action.payload.lng,

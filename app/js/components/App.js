@@ -29,8 +29,14 @@ class App extends React.Component {
         this.setTokenHandle = this.setTokenHandle.bind(this);
     }
 
+    componentWillMount() {
+        if(!this.props.state.queryParams.token) {
+            this.props.state.queryParams.token = sessionStorage.getItem('accessToken');
+        }
+    }
+
     componentDidMount() {
-        // this.props.getPhotos(this.props.state.queryParams)
+        this.props.getPhotos(this.props.state.queryParams)
     }
 
     setTokenHandle () {

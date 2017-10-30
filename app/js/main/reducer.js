@@ -18,7 +18,6 @@ const DEFAULT_STATE = {
 }
 
 const setPhotos = (state, action) => {
-    console.log(action)
     return {
         ...state,
         photos: action.payload.items,
