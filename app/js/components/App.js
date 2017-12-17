@@ -1,4 +1,5 @@
 import React from 'react'
+import ShowResult from './ShowResult'
 
 export default class App extends React.Component {
     constructor(props) {
@@ -6,6 +7,7 @@ export default class App extends React.Component {
         this.state = { amount: 0 };
 
         this.increase = this.increase.bind(this);
+        console.log('constructor()')
     }
 
     increase() {
@@ -39,6 +41,7 @@ export default class App extends React.Component {
 
     componentDidMount() {
         console.log('componentDidMount()')
+        console.log('__________________')        
     }
 
     render() {
@@ -46,7 +49,8 @@ export default class App extends React.Component {
         return (
             <div>
                 <button onClick={this.increase}>+</button>
-                <div>{this.state.amount}</div>
+                {/* <div>{this.state.amount}</div> */}
+                <ShowResult amount={this.state.amount} />
             </div>
         );
     }
